@@ -1,6 +1,9 @@
-package dev.java10x.apam;
+package dev.java10x.apam.Ninjas;
 
+import dev.java10x.apam.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 //entity transforma uma classe em uma entidade do banco de dados
 @Entity
@@ -17,9 +20,16 @@ public class NinjaModel {
 
 
     private long id;
+
     private String nome;
+
     private String email;
+
     private int idade;
+
+    //um ninja tem uma única missão
+    @ManyToOne
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
@@ -31,26 +41,32 @@ public class NinjaModel {
     }
 
     public String getNome() {
+
         return nome;
     }
 
     public void setNome(String nome) {
+
         this.nome = nome;
     }
 
     public String getEmail() {
+
         return email;
     }
 
     public void setEmail(String email) {
+
         this.email = email;
     }
 
     public int getIdade() {
+
         return idade;
     }
 
     public void setIdade(int idade) {
+
         this.idade = idade;
     }
 }
